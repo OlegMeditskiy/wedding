@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/moment/moment-with-locales.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.js"  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://kit.fontawesome.com/471586c02e.js" crossorigin="anonymous"></script>
+    <script src="/js/tinymce/tinymce.min.js" type='text/javascript'></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+            imagetools_cors_hosts: ['picsum.photos'],
+            menubar: 'file edit view insert format tools table help',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+            toolbar_sticky: true,
+            autosave_ask_before_unload: true,
+            autosave_interval: "30s",
+            autosave_prefix: "{path}{query}-{id}-",
+            autosave_restore_when_empty: false,
+            autosave_retention: "2m",
+            image_advtab: true,
+            content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//www.tiny.cloud/css/codepen.min.css'
+            ],
+            link_list: [
+                { title: 'My page 1', value: 'http://www.tinymce.com' },
+                { title: 'My page 2', value: 'http://www.moxiecode.com' }
+            ],
+            image_list: [
+                { title: 'My page 1', value: 'http://www.tinymce.com' },
+                { title: 'My page 2', value: 'http://www.moxiecode.com' }
+            ],
+            image_class_list: [
+                { title: 'None', value: '' },
+                { title: 'Some class', value: 'class-name' }
+            ],
+            importcss_append: true,
+            height: 400,
+            file_picker_callback: function (callback, value, meta) {
+                /* Provide file and text for the link dialog */
+                if (meta.filetype === 'file') {
+                    callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+                }
+
+                /* Provide image and alt text for the image dialog */
+                if (meta.filetype === 'image') {
+                    callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
+                }
+
+                /* Provide alternative source and posted for the media dialog */
+                if (meta.filetype === 'media') {
+                    callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
+                }
+            },
+            templates: [
+                { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
+                { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
+                { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br /><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
+            ],
+            template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+            template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+            height: 600,
+            image_caption: true,
+            quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+            noneditable_noneditable_class: "mceNonEditable",
+            toolbar_drawer: 'sliding',
+            contextmenu: "link image imagetools table",
+            language: 'ru'
+        });
+    </script>
+    <title>О нас</title>
+</head>
+<body>
+<div class="container">
+    <h1>
+        О нас
+    </h1>
+
+    <div>
+        <table id="myTable" class="table table-bordered" style="width:100%">
+            <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Информация</th>
+                <th>Изменить</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="about: ${aboutUs}">
+                <td th:text="${about.getName()}" ></td>
+                <td th:utext="${about.getAbout()}"></td>
+                <td> <a data-toggle="modal" data-target="#modal-warning" th:attr="data-target='#modal-warning'+${about.id }">Изменить</a></td>
+                <div class="modal modal-warning fade in" th:id="modal-warning+${about.id }"  >
+                    <div class="modal-dialog" style="max-width: 1400px; width: 100% ">
+                        <div class="modal-content" >
+                            <div class="modal-header">
+                                Изменить
+                            </div>
+                            <form method="post" th:action="@{/admin/aboutUs/updateAboutUs/{id}(id=${about.id})}">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="name">Имя</label>
+                                        <input type="text" name="name" id="name" th:value="${about.getName()}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="full-featured-non-premium" th:text="'О '+${about.getName()}"></label>
+                                        <textarea id="full-featured-non-premium" wrap = "physical" name="about" th:text="${about.getAbout()}" style="width: 100%; height: 500px; "></textarea>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+
+                                    <button type="submit" name="submit" class="btn btn-outline" th:href="@{/admin/aboutUs/updateAboutUs/{id}(id=${about.id})}"><i class="fa fa-check"></i>&nbsp;Обновить</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <form method="post" th:action="@{/admin/aboutUs/saveDate}">
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' name="date" th:value="${date}"  class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <button type="submit" name="submit" class="btn btn-outline"><i class="fa fa-check"></i>&nbsp;Обновить</button>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <h1>Program</h1>
+        <div th:utext="${program}"></div>
+        <a data-toggle="modal" data-target="#modal-program" th:attr="data-target='#modal-program'">Изменить программу</a>
+        <div class="modal modal-program fade in" th:id="modal-program"  >
+            <div class="modal-dialog" style="max-width: 1400px; width: 100% ">
+                <div class="modal-content" >
+                    <div class="modal-header">
+                        Изменить программу
+                    </div>
+                    <form method="post" th:action="@{/admin/aboutUs/updateProgram}">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="program" th:text="'Программа'"></label>
+                                <textarea wrap = "physical" id="program" name="program" th:text="${program}" style="width: 100%; height: 500px; "></textarea>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+
+                            <button type="submit" name="submit" class="btn btn-outline"><i class="fa fa-check"></i>&nbsp;Обновить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h1 th:text="${story.getStoryTitle()}"></h1>
+        <div th:utext="${story.getStory()}"></div>
+        <a data-toggle="modal" data-target="#modal-story" th:attr="data-target='#modal-story'">Изменить историю</a>
+        <div class="modal modal-story fade in" th:id="modal-story"  >
+            <div class="modal-dialog" style="max-width: 1400px; width: 100% ">
+                <div class="modal-content" >
+                    <div class="modal-header">
+                        Изменить
+                    </div>
+                    <form method="post" th:action="@{/admin/aboutUs/updateStory}">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="storyTitle">Оглавление истории</label>
+                                <input type="text" name="name" id="storyTitle" th:value="${story.getStoryTitle()}"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="story" th:text="'История'"></label>
+                                <textarea wrap = "physical" id="story" name="story" th:text="${story.getStory()}" style="width: 100%; height: 500px; "></textarea>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+
+                            <button type="submit" name="submit" class="btn btn-outline"><i class="fa fa-check"></i>&nbsp;Обновить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+        <script type="text/javascript" th:inline="javascript">
+            $(function () {
+                var dd = [[${date}]];
+                console.log(dd);
+                $('#datetimepicker1').datetimepicker({
+                    locale:'ru',
+                    useCurrent: false
+                });
+            });
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.head{
+    height: 350px;
+    justify-content: center;
+}
+.login{
+    margin-left: 0;
+    margin-right: 0;
+    
+}
+.login-col{
+    width: 100%;
+}
+
+.card-price{
+
+}
+.login-block{
+    padding: 25px;
+    margin: 0 auto;
+    
+    max-width: 350px;
+    background-color: #dbdbdb;
+}
+.login-block h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+.login-form{
+    margin-top: 25px;
+}
+.signinButton{
+    color: black;
+    background-color: #8dc68c;
+    border-color: #8dc68c;
+}
+.form-group{
+    margin-bottom: 10px;
+}
+
+.register{
+    margin-top: 30px;
+    margin-bottom:30px ;
+}
+.register-col{
+    text-align: center;
+    padding: 25px;
+    margin: 0 auto;
+    max-width: 350px;
+    background-color: #dbdbdb;
+}
+
+#logo{
+    width: 100%;
+}
+
+
+.search{
+    
+    
+}
+.searchButton{
+    color: black;
+    background: #8DC68C;
+    font-family: 'Bellefair';
+    /* font-size: 2vh; */
+}
+.cart{
+    background-color: #8DC68C;
+    margin: 5px;
+}
+.nav{
+    
+    background-color: black;
+}
+.menu{
+    font-family: Bellefair;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+color: #FFFFFF;
+}
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+/* margin-bottom: 10px; Added */
+}
+.project{
+    margin-top: 60px;
+    justify-content: center;
+}
+.last{
+    font-family: 'Boogaloo';font-size: 36px;
+    text-align: center;
+    margin-top: 40px;
+}
+footer{
+    margin-top:60px;
+    height: 50px;
+    background-color: #f8f9fa;
+
+}
+.f{
+    color: rgba(0,0,0,.5);
+    padding: 10px 0;
+
+  text-align: center;
+}
+.buy{
+    padding: 0;
+}
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+.cart-item{
+    margin: 10px;
+    padding: 5px;
+}
+.order{
+    padding: 10px;
+}
+.columnName{
+    color: gray;
+    font-size: 15px;
+    font-weight: bold;
+}
+.main-content {
+    min-height: calc(100vh - 100px); /* Total viewport height - (height of navbar + height of footer) */
+}
+table.dataTable{
+    border-collapse: collapse !important;
+}
+
+.countdown-title {
+    color: #396;
+    font-weight: 100;
+    font-size: 40px;
+    margin: 40px 0px 20px;
+}
+
+.countdown {
+    font-family: sans-serif;
+    color: #fff;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+}
+
+.countdown-number {
+    padding: 10px;
+    width: 100px;
+    border-radius: 50%;
+    color: black;
+    display: inline-block;
+}
+
+.countdown-time {
+    padding: 15px;
+    width: 50px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #990055;
+    display: inline-block;
+}
+.deadline-message{
+    display: none;
+    font-size: 24px;
+    font-style: italic;
+}
+
+/*.visible{*/
+/*    display: block;*/
+/*}*/
+
+/*.hidden{*/
+/*    display: none;*/
+/*}*/
+/*.countdown-text {*/
+/*    display: block;*/
+/*    padding-top: 5px;*/
+/*    font-size: 16px;*/
+/*    color: black;*/
+/*}*/
+
+@media only screen and (min-width: 990px)  {
+    .navbar-nav {
+        display:table;
+        width:100%;
+        margin: 0;
+    }
+    .navbar-nav > li {
+        float:none;
+        display:table-cell;
+        text-align:center;
+    }
+
+}
