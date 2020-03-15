@@ -6,33 +6,86 @@
     <title>Title</title>
     <link rel="stylesheet" href="/css/style.css">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
 <a href="/admin"><button class="btn cart" th:if="${user}">Admin panel</button></a>
+
 <div>
-    <h1 class="countdown-title">Countdown Clock</h1>
-    <div id="deadline-message" class="deadline-message">
-        Время прошло
-    </div>
-    <div id="countdown" class="countdown">
-        <div class="countdown-number">
-            <span class="days countdown-time"></span>
-            <span class="countdown-text">Дней</span>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-expand-lg">
+        <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+            <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Наша история</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Программа</a>
+                </li>
+            </ul>
         </div>
-        <div class="countdown-number">
-            <span class="hours countdown-time"></span>
-            <span class="countdown-text">Часов</span>
+        <div class="mx-auto my-2 order-0 order-md-1 position-relative">
+            <a class="mx-auto" href="#">
+                <img id="logoDA" src="/images/logo2.png">
+            </a>
+<!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">-->
+<!--                <span class="navbar-toggler-icon"></span>-->
+<!--            </button>-->
         </div>
-        <div class="countdown-number">
-            <span class="minutes countdown-time"></span>
-            <span class="countdown-text">Минут</span>
+        <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
+            <ul class="navbar-nav mr-auto text-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Дресс-код</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Место проведения</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Подтверждение присутствия</a>
+                </li>
+            </ul>
         </div>
-        <div class="countdown-number">
-            <span class="seconds countdown-time"></span>
-            <span class="countdown-text">Секунд</span>
+    </nav>
+</div>
+<div class="photo">
+    <div class="gray"></div>
+<!--    <img class="image" src="/images/image.jpg" alt="">-->
+    <div class="beforeWedding">До нашей свадьбы осталось: </div>
+    <div class="weddingDate">
+        <h3>11 июля 2020</h3></div>
+    <div class="names">Дарья и Александр</div>
+    <div class="timer">
+        <div id="deadline-message" class="deadline-message">
+            Время прошло
+        </div>
+        <div id="countdown" class="countdown">
+            <div class="countdown-number">
+                <span class="days countdown-time"></span>
+                <span class="countdown-text">Дней</span>
+            </div>
+            <div class="countdown-number">
+                <span class="hours countdown-time"></span>
+                <span class="countdown-text">Часов</span>
+            </div>
+            <div class="countdown-number">
+                <span class="minutes countdown-time"></span>
+                <span class="countdown-text">Минут</span>
+            </div>
+            <div class="countdown-number">
+                <span class="seconds countdown-time"></span>
+                <span class="countdown-text">Секунд</span>
+            </div>
         </div>
     </div>
 </div>
+
+
+
 
 
 <script th:inline="javascript">

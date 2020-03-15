@@ -23,7 +23,7 @@ public class MainController {
 
     @GetMapping
     public String main(Model model) {
-        Date date = weddingDateRepo.findById((long) 7).get().getWeddingDate();
+        Date date = weddingDateRepo.findById((long) 2).get().getWeddingDate();
 
         model.addAttribute("date",date);
         return "main";

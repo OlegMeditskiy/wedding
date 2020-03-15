@@ -10,7 +10,7 @@
     </parent>
     <groupId>ru.dasha</groupId>
     <artifactId>wedding</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>wedding</name>
     <description>Demo project for Spring Boot</description>
 
@@ -20,6 +20,7 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>

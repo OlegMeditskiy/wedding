@@ -2,10 +2,7 @@
     margin: 0;
     padding: 0;
 }
-.head{
-    height: 350px;
-    justify-content: center;
-}
+
 .login{
     margin-left: 0;
     margin-right: 0;
@@ -15,9 +12,6 @@
     width: 100%;
 }
 
-.card-price{
-
-}
 .login-block{
     padding: 25px;
     margin: 0 auto;
@@ -58,81 +52,6 @@
     width: 100%;
 }
 
-
-.search{
-    
-    
-}
-.searchButton{
-    color: black;
-    background: #8DC68C;
-    font-family: 'Bellefair';
-    /* font-size: 2vh; */
-}
-.cart{
-    background-color: #8DC68C;
-    margin: 5px;
-}
-.nav{
-    
-    background-color: black;
-}
-.menu{
-    font-family: Bellefair;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-color: #FFFFFF;
-}
-.card {
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
-/* margin-bottom: 10px; Added */
-}
-.project{
-    margin-top: 60px;
-    justify-content: center;
-}
-.last{
-    font-family: 'Boogaloo';font-size: 36px;
-    text-align: center;
-    margin-top: 40px;
-}
-footer{
-    margin-top:60px;
-    height: 50px;
-    background-color: #f8f9fa;
-
-}
-.f{
-    color: rgba(0,0,0,.5);
-    padding: 10px 0;
-
-  text-align: center;
-}
-.buy{
-    padding: 0;
-}
-.card-img-top {
-    height: 300px;
-    object-fit: cover;
-}
-
-.cart-item{
-    margin: 10px;
-    padding: 5px;
-}
-.order{
-    padding: 10px;
-}
-.columnName{
-    color: gray;
-    font-size: 15px;
-    font-weight: bold;
-}
-.main-content {
-    min-height: calc(100vh - 100px); /* Total viewport height - (height of navbar + height of footer) */
-}
 table.dataTable{
     border-collapse: collapse !important;
 }
@@ -147,33 +66,164 @@ table.dataTable{
 .countdown {
     font-family: sans-serif;
     color: #fff;
-    display: inline-block;
+    /*display: inline-block;*/
     font-weight: 100;
     text-align: center;
-    font-size: 30px;
 }
 
+
 .countdown-number {
+    border-color: #e0e0e0;
+    border-width: 4px;
+    border-style: solid;
+    background-color: #d2d2d2;
     padding: 10px;
-    width: 100px;
+    width: 97px;
+    height: 97px;
     border-radius: 50%;
     color: black;
     display: inline-block;
 }
 
 .countdown-time {
-    padding: 15px;
-    width: 50px;
-    border-radius: 50%;
-    border-style: solid;
-    border-color: #990055;
-    display: inline-block;
+    color: #4a4a4a;
+    font-family: "DejaVu Serif";
+        font-size: 30px;
+}
+.countdown-text{
+    color: #4a4a4a;
+    font-family: "DejaVu Serif";
+    font-size: 16px;
 }
 .deadline-message{
     display: none;
     font-size: 24px;
     font-style: italic;
 }
+.navbar{
+    height: 60px;
+    background-color: white;
+    color: black;
+}
+
+.image{
+
+    width:100%;
+}
+.photo{
+    position: relative;
+}
+.timer{
+    position: absolute;
+    bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+.beforeWedding {
+    text-align: center;
+    max-width: 500px;
+    font-family: "DejaVu Serif";
+    font-size: 24px;
+    color: #4a4a4a;
+    position: absolute;
+    bottom: 208px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.h1 {
+    position: relative;
+    font-size: 30px;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+}
+h3:before, h3:after {
+    margin-left: 10%;
+    position: absolute;
+    top: 40%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: '\a0';
+    background-color: black;
+}
+h3:before {
+    margin-left: -60%;
+    text-align: right;
+}
+
+.weddingDate{
+    text-align: center;
+    max-width: 500px;
+    font-family: "DejaVu Serif";
+    font-size: 30px;
+    color: #4a4a4a;
+    position: absolute;
+    bottom: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+.gray{
+    height: 840px;
+    background-color: #a7a7a7;
+}
+.names{
+    text-align: center;
+    max-width: 500px;
+    font-family: "DejaVu Serif";
+    font-size: 36px;
+    color: #4a4a4a;
+    position: absolute;
+    bottom: 315px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.nav-item{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nav-link{
+    font-family: "DejaVu Serif";
+    color: black ;
+    font-size: 18px;
+}
+
+
+@media (min-width: 576px) {
+    #logoDA{
+        margin-top: -18px;
+    }
+}
+
+@media (min-width: 768px) {
+    #logoDA{
+        margin-top: -18px;
+    }
+}
+
+@media (min-width: 992px) {
+    #logoDA{
+        margin-top: 60px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #logoDA{
+        margin-top: 60px;
+    }
+}
+
 
 /*.visible{*/
 /*    display: block;*/
@@ -189,16 +239,3 @@ table.dataTable{
 /*    color: black;*/
 /*}*/
 
-@media only screen and (min-width: 990px)  {
-    .navbar-nav {
-        display:table;
-        width:100%;
-        margin: 0;
-    }
-    .navbar-nav > li {
-        float:none;
-        display:table-cell;
-        text-align:center;
-    }
-
-}

@@ -15,6 +15,7 @@ import ru.dasha.wedding.repos.ProgramDetailRepo;
 import ru.dasha.wedding.repos.StoryRepo;
 import ru.dasha.wedding.repos.WeddingDateRepo;
 
+import javax.transaction.Transactional;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -46,16 +47,17 @@ public class AboutUsController {
         List<AboutUs> aboutUsList = aboutUsRepo.findAll();
         System.out.println();
         model.put("aboutUs",aboutUsList);
-        Date date = weddingDateRepo.findById((long)7).get().getWeddingDate();
+
+        Date date = weddingDateRepo.findById((long)2).get().getWeddingDate();
         SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);
         String strDate = formatter.format(date);
         System.out.println(strDate);
         model.put("date",strDate);
 
-        ProgramDetail programDetail1 = programDetailRepo.findById((long) 18).get();
-        model.put("program",programDetail1.getProgram());
+        List <ProgramDetail> programDetail1 = programDetailRepo.findAll();
+        model.put("program",programDetail1);
 
-        Story story = storyRepo.findById((long) 19).get();
+        List<Story> story = storyRepo.findAll();
         model.put("story",story);
         return "aboutUs";
     }
@@ -81,12 +83,49 @@ public class AboutUsController {
 //        formatter.setTimeZone(time_zone);
         Date dateToSet = formatter.parse(date);
         System.out.println(dateToSet);
-       WeddingDate weddingDate = weddingDateRepo.findById((long) 7).get();
+       WeddingDate weddingDate = weddingDateRepo.findById((long) 2).get();
 
        weddingDate.setWeddingDate(dateToSet);
        weddingDateRepo.save(weddingDate);
         return "redirect:/admin/aboutUs";
     }
+    @PostMapping("/createDate")
+    public ResponseEntity<String> createDate() throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);
+//        TimeZone time_zone
+//                = TimeZone.getTimeZone("Europe/Moscow");
+//        formatter.setTimeZone(time_zone);
+//        Date dateToSet = formatter.parse(date);
+//        System.out.println(dateToSet);
+        Date date1 = new Date();
+        WeddingDate weddingDate = new WeddingDate();
+        weddingDate.setWeddingDate(date1);
+        weddingDateRepo.save(weddingDate);
+        return ResponseEntity.accepted().body("About was added");
+    }
+
+    @GetMapping("/getDate")
+    public ResponseEntity<List<WeddingDate>> getDate() throws ParseException {
+
+        return ResponseEntity.accepted().body(weddingDateRepo.findAll());
+    }
+
+    @GetMapping("/getStory")
+    public ResponseEntity<List<Story>> getStory() throws ParseException {
+
+        return ResponseEntity.accepted().body(storyRepo.findAll());
+    }
+
+    @DeleteMapping("/deleteStory/{id}")
+    @Transactional
+    public ResponseEntity<List<Story>> deleteStory(@PathVariable Long id) throws ParseException {
+        storyRepo.delete(storyRepo.findById(id).get());
+        return ResponseEntity.accepted().body(storyRepo.findAll());
+    }
+
+
+
+
 
     @PostMapping("/updateAboutUs/{id}")
     public String updateAboutUs(
@@ -95,11 +134,11 @@ public class AboutUsController {
             @PathVariable Long id
     ){
         AboutUs aboutUs1 = aboutUsRepo.findById(id).get();
+
         aboutUs1.setName(name);
         aboutUs1.setAbout(about);
         aboutUsRepo.save(aboutUs1);
         return "redirect:/admin/aboutUs";
-
     }
     @PostMapping("/addProgram")
     public ResponseEntity<String> addProgram(
@@ -111,11 +150,12 @@ public class AboutUsController {
         programDetailRepo.save(programDetail1);
         return ResponseEntity.accepted().body("About was added");
     }
-    @PostMapping("/updateProgram")
+    @PostMapping("/updateProgram/{id}")
     public String updateProgram(
+            @PathVariable Long id,
             @RequestParam String program
     ){
-        ProgramDetail programDetail1 = programDetailRepo.findById((long) 18).get();
+        ProgramDetail programDetail1 = programDetailRepo.findById(id).get();
         programDetail1.setProgram(program);
         programDetailRepo.save(programDetail1);
         return "redirect:/admin/aboutUs";
@@ -130,12 +170,15 @@ public class AboutUsController {
         storyRepo.save(story1);
         return ResponseEntity.accepted().body("Story was added");
     }
-    @PostMapping("/updateStory")
+    @PostMapping("/updateStory/{id}")
     public String updateStory(
-            @RequestParam String story
+            @PathVariable Long id,
+            @RequestParam String story,
+            @RequestParam String storyTitle
     ){
-        Story story1 = storyRepo.findById((long) 19).get();
+        Story story1 = storyRepo.findById(id).get();
         story1.setStory(story);
+        story1.setStoryTitle(storyTitle);
         storyRepo.save(story1);
         return "redirect:/admin/aboutUs";
     }
