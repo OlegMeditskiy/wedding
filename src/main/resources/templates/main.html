@@ -3,13 +3,17 @@
       xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/js/parallax.js"></script>
 </head>
 <body>
 <a href="/admin"><button class="btn cart" th:if="${user}">Admin panel</button></a>
@@ -19,13 +23,13 @@
         <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
             <ul class="navbar-nav ml-auto text-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">О нас</a>
+                    <a class="nav-link" href="#aboutUs">О нас</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Наша история</a>
+                    <a class="nav-link" href="#story">Наша история</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Программа</a>
+                    <a class="nav-link" href="#program">Программа</a>
                 </li>
             </ul>
         </div>
@@ -40,48 +44,96 @@
         <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
             <ul class="navbar-nav mr-auto text-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Дресс-код</a>
+                    <a class="nav-link" href="#dressCode">Дресс-код</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Место проведения</a>
+                    <a class="nav-link" href="#place">Место проведения</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Подтверждение присутствия</a>
+                    <a class="nav-link" href="#invite">Подтверждение присутствия</a>
                 </li>
             </ul>
         </div>
     </nav>
 </div>
 <div class="photo">
-    <div class="gray"></div>
+<!--    <div class="gray"></div>-->
 <!--    <img class="image" src="/images/image.jpg" alt="">-->
-    <div class="beforeWedding">До нашей свадьбы осталось: </div>
-    <div class="weddingDate">
-        <h3>11 июля 2020</h3></div>
-    <div class="names">Дарья и Александр</div>
-    <div class="timer">
-        <div id="deadline-message" class="deadline-message">
-            Время прошло
+
+
+    <div class="outer">
+        <div class="names">Дарья и Александр</div>
+
+        <div class="weddingDate">
+            <div class="text">
+                11 июля 2020
+            </div></div>
+        <div class="beforeWedding">
+            <div class="text">
+                До нашей свадьбы осталось:
+            </div>
+
         </div>
-        <div id="countdown" class="countdown">
-            <div class="countdown-number">
-                <span class="days countdown-time"></span>
-                <span class="countdown-text">Дней</span>
+        <div class="timer">
+            <div id="deadline-message" class="deadline-message">
+                Время прошло
             </div>
-            <div class="countdown-number">
-                <span class="hours countdown-time"></span>
-                <span class="countdown-text">Часов</span>
-            </div>
-            <div class="countdown-number">
-                <span class="minutes countdown-time"></span>
-                <span class="countdown-text">Минут</span>
-            </div>
-            <div class="countdown-number">
-                <span class="seconds countdown-time"></span>
-                <span class="countdown-text">Секунд</span>
+            <div id="countdown" class="countdown">
+                <div class="countdown-number">
+                    <span class="days countdown-time"></span>
+                    <span class="countdown-text">Дней</span>
+                </div>
+                <div class="countdown-number">
+                    <span class="hours countdown-time"></span>
+                    <span class="countdown-text">Часов</span>
+                </div>
+                <div class="countdown-number">
+                    <span class="minutes countdown-time"></span>
+                    <span class="countdown-text">Минут</span>
+                </div>
+                <div class="countdown-number">
+                    <span class="seconds countdown-time"></span>
+                    <span class="countdown-text">Секунд</span>
+                </div>
             </div>
         </div>
     </div>
+    <figure class="change-ratio">
+        <img src="/images/image2.jpg">
+    </figure>
+</div>
+<div class="container">
+
+    <div id="aboutUs">
+        <h1 class="text-left">О нас</h1>
+        <div class="row" style="height: 600px;">
+            <div class="col" style=" height: 400px;background-color: black"></div>
+            <div class="col"></div>
+            <div class="col"style="  height: 400px; background-color: black"></div>
+        </div>
+    </div>
+
+    <div id="story" class="text-center"><h1>Наша история</h1></div>
+    <div class="row" style="height: 600px;">
+        <div class="col"></div>
+    </div>
+    <div id="program" class="text-center"><h1>Программа</h1></div>
+    <div class="row" style="height: 600px;">
+        <div class="col"></div>
+    </div>
+    <div id="dressCode" class="text-center"><h1>Дресс код</h1></div>
+    <div class="row" style="height: 600px;">
+        <div class="col"></div>
+    </div>
+    <div id="place" class="text-center"><h1>Место проведения/проезд</h1></div>
+    <div class="row" style="height: 600px;">
+        <div class="col"></div>
+    </div>
+    <div id="invite" class="text-center"><h1>Подтверждение</h1></div>
+    <div class="row" style="height: 600px;">
+        <div class="col"></div>
+    </div>
+
 </div>
 
 
